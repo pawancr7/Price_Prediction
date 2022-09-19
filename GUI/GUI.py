@@ -29,6 +29,8 @@ def gui():
         if t == 20:
             root.destroy()
 
+    def cancel():
+        root.destroy()
     root = tk.Tk()
     # position
     w = 500
@@ -50,5 +52,10 @@ def gui():
     progress = ttk.Progressbar(root, length=250)
     progress.grid(row=1, column=3, padx=100)
     progress.after(1, lambda: update_status1(2))
+    B = tk.Button(text="Cancel", command=cancel)
+    B.grid(row=4, column=3, padx=100, pady=20)
 
     root.mainloop()
+
+
+gui()
