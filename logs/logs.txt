@@ -1,0 +1,2 @@
+[time, location, sqft, bath, bhk, price]
+Mon Sep 19 20:25:54 2022 Indira Nagar,5000,3,2 517.501 

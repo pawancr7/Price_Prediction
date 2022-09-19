@@ -1,0 +1,5 @@
+sklearn
+tk
+pandas
+numpy
+db-sqlite3
