@@ -56,6 +56,3 @@ def gui():
     B.grid(row=4, column=3, padx=100, pady=20)
 
     root.mainloop()
-
-
-gui()
