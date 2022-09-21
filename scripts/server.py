@@ -4,7 +4,7 @@ from predict import pred
 from getpass import getpass
 
 key = getpass('Enter MongoDB password ')
-timeout = input('Enter Timeout Time ')
+timeout = int(input('Enter Timeout Time '))
 req = 'mongodb+srv://Akash:{}@cluster0.6pagbip.mongodb.net/?retryWrites=true&w=majority'.format(
     key)
 
