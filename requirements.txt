@@ -4,3 +4,4 @@ pandas
 numpy
 db-sqlite3
 pymongo
+dnspython
