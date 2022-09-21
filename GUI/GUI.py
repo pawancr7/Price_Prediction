@@ -6,7 +6,6 @@ start_time = time.time()
 
 
 def gui():
-
     def update_status1(step):
         progress.step(step)
         root.after(1000, lambda: update_status1(10))

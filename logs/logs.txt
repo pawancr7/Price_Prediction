@@ -1,2 +1,2 @@
 [time, location, sqft, bath, bhk, price]
-Mon Sep 19 20:25:54 2022 Indira Nagar,5000,3,2 517.501 
+Wed Sep 21 12:00:05 2022 Indira Nagar,1000,3,3 195.53 

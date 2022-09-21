@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 import numpy as np
+import warnings
+warnings.filterwarnings("ignore")
 
 print("Cleaning Data")
 l = os.listdir('scripts/Datasets/')
@@ -36,7 +38,6 @@ if 'bhp.csv' not in l:
     df4 = df3.copy()
     df4.total_sqft = df4.total_sqft.apply(convert_sqft_to_num)
     df4 = df4[df4.total_sqft.notnull()]
-    df4.head(2)
 
     df5 = df4.copy()
     df5['price_per_sqft'] = df5['price']*100000/df5['total_sqft']
@@ -47,31 +48,13 @@ if 'bhp.csv' not in l:
     location_stats = df5['location'].value_counts(ascending=False)
     location_stats
 
-    location_stats.values.sum()
-
-    len(location_stats[location_stats > 10])
-
-    len(location_stats)
-
-    len(location_stats[location_stats <= 10])
-
     location_stats_less_than_10 = location_stats[location_stats <= 10]
-    location_stats_less_than_10
-
-    len(df5.location.unique())
 
     df5.location = df5.location.apply(
         lambda x: 'other' if x in location_stats_less_than_10 else x)
     len(df5.location.unique())
 
-    df5.head(10)
-
-    df5[df5.total_sqft/df5.bhk < 300].head()
-
-    df5.shape
-
     df6 = df5[~(df5.total_sqft/df5.bhk < 300)]
-    df6.shape
 
     df6.price_per_sqft.describe()
 
@@ -105,7 +88,6 @@ if 'bhp.csv' not in l:
         return df.drop(exclude_indices, axis='index')
 
     df8 = remove_bhk_outliers(df7)
-    df8.shape
 
     df8[df8.bath > 10]
 
@@ -116,7 +98,6 @@ if 'bhp.csv' not in l:
     df10 = df9.drop(['size', 'price_per_sqft'], axis='columns')
 
     dummies = pd.get_dummies(df10.location)
-    dummies.head(3)
 
     df11 = pd.concat(
         [df10, dummies.drop('other', axis='columns')], axis='columns')
